@@ -31,10 +31,21 @@ class TwitterBot:
         for i in range(1,100):
             bot.find_element_by_class_name('fr66n').click()
             time.sleep(3)
+            
+            #for comment
+            bot.find_element_by_xpath('/html/body/div[3]/div[2]/div/article/div[2]/section[1]/span[2]/button/span').click()
+            time.sleep(2)
+            #Write in the comment box
+            bot.find_element_by_xpath("/html/body/div[3]/div[2]/div/article/div[2]/section[3]/div/form/textarea").send_keys("Nice")
+            time.sleep(2)
+            #Click on Post
+            bot.find_element_by_xpath("/html/body/div[3]/div[2]/div/article/div[2]/section[3]/div/form/button").click()
+            time.sleep(5)
+            
             bot.find_element_by_class_name('coreSpriteRightPaginationArrow').click()
             time.sleep(10)
             
-sv = TwitterBot('suvrat72000@gmail.com','meuandfamily')
-sv.login()
-time.sleep(3)
-sv.like_post('codergirl')
+if __name__=="__main__":
+    ig_bot= TwitterBot("Enter_Username", "Password")
+    ig_bot.login()
+    ig_bot.like_post("Enter_hashtag_name")
